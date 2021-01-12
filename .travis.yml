@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dcenteno448/docker-course-react -f Dockerfile.dev .
+
+script:
+  -  docker run -e CI=true dcenteno448/docker-course-react npm run test
